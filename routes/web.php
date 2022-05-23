@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AnimeController;
+use App\Models\Anime;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/anime', [AnimeController::class,'index']);
+
+Route::get('/anime/create', [AnimeController::class,'create']);
+
+Route::post('/anime/insert', [AnimeController::class,'insert']);
+
+Route::get('/anime/{id}/edit', [AnimeController::class,'edit']);
+
+Route::put('/anime/{id}', [AnimeController::class,'update']);
+
+Route::delete('/anime/{id}',[AnimeController::class, 'destroy']);
